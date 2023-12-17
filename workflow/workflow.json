@@ -1,6 +1,6 @@
 {
-  "last_node_id": 38,
-  "last_link_id": 78,
+  "last_node_id": 39,
+  "last_link_id": 79,
   "nodes": [
     {
       "id": 14,
@@ -14,7 +14,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -53,7 +53,7 @@
         "1": 334
       },
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -238,7 +238,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        231930357187934,
+        699780157299696,
         "randomize",
         20,
         2.5,
@@ -246,31 +246,6 @@
         "simple",
         1
       ]
-    },
-    {
-      "id": 31,
-      "type": "PreviewImage",
-      "pos": [
-        1751,
-        -340
-      ],
-      "size": {
-        "0": 501.69647216796875,
-        "1": 541.9198608398438
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 62
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
     },
     {
       "id": 8,
@@ -305,48 +280,6 @@
           "links": [
             69
           ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 35,
-      "type": "VAEDecode",
-      "pos": [
-        1211,
-        -128
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 60
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 61
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            62,
-            70
-          ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -391,9 +324,7 @@
         {
           "name": "VAE",
           "type": "VAE",
-          "links": [
-            61
-          ],
+          "links": [],
           "shape": 3,
           "slot_index": 2
         }
@@ -417,7 +348,7 @@
         "1": 164.31304931640625
       },
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -464,7 +395,7 @@
         "1": 180.6060791015625
       },
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -542,10 +473,10 @@
         "save_metadata": false,
         "audio_file": "",
         "videopreview": {
-          "hidden": false,
+          "hidden": true,
           "paused": false,
           "params": {
-            "filename": "Music1_00006.mp4",
+            "filename": "Music1_00007.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4"
@@ -638,8 +569,8 @@
       "id": 38,
       "type": "GetServerParameter",
       "pos": [
-        -551,
-        585
+        -367,
+        574
       ],
       "size": {
         "0": 400,
@@ -684,12 +615,6 @@
           ],
           "shape": 3,
           "slot_index": 3
-        },
-        {
-          "name": "index_output",
-          "type": "INT",
-          "links": null,
-          "shape": 3
         }
       ],
       "properties": {
@@ -701,8 +626,81 @@
         16,
         30,
         15,
-        "1",
+        "",
         ""
+      ]
+    },
+    {
+      "id": 35,
+      "type": "VAEDecode",
+      "pos": [
+        1465,
+        -123
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 60
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            70
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        1094,
+        -38
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            79
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "mitsua_vae.bin"
       ]
     }
   ],
@@ -836,22 +834,6 @@
       "LATENT"
     ],
     [
-      61,
-      29,
-      2,
-      35,
-      1,
-      "VAE"
-    ],
-    [
-      62,
-      35,
-      0,
-      31,
-      0,
-      "IMAGE"
-    ],
-    [
       69,
       8,
       0,
@@ -898,6 +880,14 @@
       12,
       3,
       "INT"
+    ],
+    [
+      79,
+      39,
+      0,
+      35,
+      1,
+      "VAE"
     ]
   ],
   "groups": [

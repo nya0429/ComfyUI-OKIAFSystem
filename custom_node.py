@@ -21,7 +21,6 @@ def get_date_strings():
     return formatted_date
 
 class MusicIndex:
-
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -36,6 +35,20 @@ class MusicIndex:
     OUTPUT_NODE = True
     def run(self,input_index):
         return (input_index)
+    
+    # @classmethod
+    # def IS_CHANGED(s, latent):
+    #     image_path = folder_paths.get_annotated_filepath(latent)
+    #     m = hashlib.sha256()
+    #     with open(image_path, 'rb') as f:
+    #         m.update(f.read())
+    #     return m.digest().hex()
+
+    # @classmethod
+    # def VALIDATE_INPUTS(s, latent):
+    #     if not folder_paths.exists_annotated_filepath(latent):
+    #         return "Invalid latent file: {}".format(latent)
+    #     return True
 
 class GetServerParameter:
 
@@ -48,7 +61,6 @@ class GetServerParameter:
                 "music1_batch_size": ("INT",{"default": 16, "min": 1, "step": 1},),
                 "music2_batch_size": ("INT",{"default": 30, "min": 1, "step": 1},),
                 "music3_batch_size": ("INT",{"default": 15, "min": 1, "step": 1},),
-                # "index_input": ("INT",{"default": 1, "min": 1, "step": 1},),
                 "positive_prompt": ("STRING", {"multiline": True}),
                 "negative_prompt": ("STRING", {"multiline": True}),
             }
@@ -58,6 +70,14 @@ class GetServerParameter:
     FUNCTION = "run"
     OUTPUT_NODE = True
     CATEGORY = "OKIAF"
+
+    # @classmethod
+    # def IS_CHANGED(s, latent):
+    #     image_path = folder_paths.get_annotated_filepath(latent)
+    #     m = hashlib.sha256()
+    #     with open(image_path, 'rb') as f:
+    #         m.update(f.read())
+    #     return m.digest().hex()
 
     def run(self,domain,output,positive_prompt,negative_prompt,
             music1_batch_size,music2_batch_size,music3_batch_size):
