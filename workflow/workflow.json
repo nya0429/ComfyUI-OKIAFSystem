@@ -1,6 +1,6 @@
 {
-  "last_node_id": 37,
-  "last_link_id": 74,
+  "last_node_id": 38,
+  "last_link_id": 78,
   "nodes": [
     {
       "id": 14,
@@ -156,99 +156,6 @@
       ]
     },
     {
-      "id": 24,
-      "type": "CLIPTextEncode",
-      "pos": [
-        242,
-        -297
-      ],
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 41,
-          "slot_index": 0
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 72,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            57
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "2D, pattern, fog,\n"
-      ]
-    },
-    {
-      "id": 25,
-      "type": "CLIPTextEncode",
-      "pos": [
-        243,
-        -79
-      ],
-      "size": {
-        "0": 425.27801513671875,
-        "1": 180.6060791015625
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 42
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 73,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            58
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "humans, animals, human shapes, animal shapes"
-      ]
-    },
-    {
       "id": 23,
       "type": "EmptyLatentImage",
       "pos": [
@@ -331,94 +238,13 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        209509095021620,
+        231930357187934,
         "randomize",
         20,
         2.5,
         "euler",
         "simple",
         1
-      ]
-    },
-    {
-      "id": 12,
-      "type": "SVD_img2vid_Conditioning",
-      "pos": [
-        1586.0493844786872,
-        678.9492079485855
-      ],
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_vision",
-          "type": "CLIP_VISION",
-          "link": 24
-        },
-        {
-          "name": "init_image",
-          "type": "IMAGE",
-          "link": 70,
-          "slot_index": 1
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 25
-        },
-        {
-          "name": "video_frames",
-          "type": "INT",
-          "link": 71,
-          "widget": {
-            "name": "video_frames"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            40
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            17
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            18
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SVD_img2vid_Conditioning"
-      },
-      "widgets_values": [
-        1920,
-        816,
-        24,
-        127,
-        12,
-        0
       ]
     },
     {
@@ -529,61 +355,6 @@
       }
     },
     {
-      "id": 33,
-      "type": "VHS_VideoCombine",
-      "pos": [
-        2672,
-        506
-      ],
-      "size": [
-        315,
-        246
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 69
-        },
-        {
-          "name": "filename_prefix",
-          "type": "STRING",
-          "link": 74,
-          "widget": {
-            "name": "filename_prefix"
-          }
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "VHS_VideoCombine"
-      },
-      "widgets_values": {
-        "frame_rate": 12,
-        "loop_count": 0,
-        "filename_prefix": "SDV",
-        "format": "video/h264-mp4",
-        "pingpong": false,
-        "save_image": true,
-        "crf": 20,
-        "save_metadata": false,
-        "audio_file": "",
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "Music1_00001.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4"
-          }
-        }
-      }
-    },
-    {
       "id": 29,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -635,15 +406,244 @@
       ]
     },
     {
-      "id": 37,
+      "id": 24,
+      "type": "CLIPTextEncode",
+      "pos": [
+        163,
+        318
+      ],
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 41,
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 75,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            57
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "2D, pattern, fog,\n"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "CLIPTextEncode",
+      "pos": [
+        177,
+        540
+      ],
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 42
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 76,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            58
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "humans, animals, human shapes, animal shapes"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        172,
+        809
+      ],
+      "size": [
+        315,
+        246
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 69
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 77,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 12,
+        "loop_count": 0,
+        "filename_prefix": "SDV",
+        "format": "video/h264-mp4",
+        "pingpong": false,
+        "save_image": true,
+        "crf": 20,
+        "save_metadata": false,
+        "audio_file": "",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Music1_00006.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "SVD_img2vid_Conditioning",
+      "pos": [
+        172,
+        1141
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 24
+        },
+        {
+          "name": "init_image",
+          "type": "IMAGE",
+          "link": 70,
+          "slot_index": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        },
+        {
+          "name": "video_frames",
+          "type": "INT",
+          "link": 78,
+          "widget": {
+            "name": "video_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SVD_img2vid_Conditioning"
+      },
+      "widgets_values": [
+        1920,
+        816,
+        24,
+        127,
+        12,
+        0
+      ]
+    },
+    {
+      "id": 38,
       "type": "GetServerParameter",
       "pos": [
-        83,
-        491
+        -551,
+        585
       ],
       "size": {
         "0": 400,
-        "1": 426.0000305175781
+        "1": 378
       },
       "flags": {},
       "order": 3,
@@ -653,7 +653,7 @@
           "name": "positive_prompt",
           "type": "STRING",
           "links": [
-            72
+            75
           ],
           "shape": 3,
           "slot_index": 0
@@ -662,7 +662,7 @@
           "name": "negative_prompt",
           "type": "STRING",
           "links": [
-            73
+            76
           ],
           "shape": 3,
           "slot_index": 1
@@ -671,7 +671,7 @@
           "name": "filename_prefix",
           "type": "STRING",
           "links": [
-            74
+            77
           ],
           "shape": 3,
           "slot_index": 2
@@ -680,27 +680,28 @@
           "name": "video_frame",
           "type": "INT",
           "links": [
-            71
+            78
           ],
           "shape": 3,
           "slot_index": 3
+        },
+        {
+          "name": "index_output",
+          "type": "INT",
+          "links": null,
+          "shape": 3
         }
       ],
       "properties": {
         "Node name for S&R": "GetServerParameter"
       },
       "widgets_values": [
-        "https://w001-api.studiognu.org/api/prompt/mv/Music1",
-        "Music1",
-        "C:\\Users\\KONEL\\Desktop\\OKIAF\\ComfyUI_windows_portable\\ComfyUI\\output",
+        "https://w001-api.studiognu.org/api/prompt/mv",
+        "../OKIAFSystem/Video",
         16,
-        "Music2",
-        "C:\\Users\\KONEL\\Desktop\\OKIAF\\ComfyUI_windows_portable\\ComfyUI\\output",
         30,
-        "Music3",
-        "C:\\Users\\KONEL\\Desktop\\OKIAF\\ComfyUI_windows_portable\\ComfyUI\\output",
         15,
-        "",
+        "1",
         ""
       ]
     }
@@ -867,36 +868,36 @@
       "IMAGE"
     ],
     [
-      71,
-      37,
-      3,
-      12,
-      3,
-      "INT"
-    ],
-    [
-      72,
-      37,
+      75,
+      38,
       0,
       24,
       1,
       "STRING"
     ],
     [
-      73,
-      37,
+      76,
+      38,
       1,
       25,
       1,
       "STRING"
     ],
     [
-      74,
-      37,
+      77,
+      38,
       2,
       33,
       1,
       "STRING"
+    ],
+    [
+      78,
+      38,
+      3,
+      12,
+      3,
+      "INT"
     ]
   ],
   "groups": [
