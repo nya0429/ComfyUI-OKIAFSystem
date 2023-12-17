@@ -14,7 +14,7 @@ def get_request(api):
     res = get(api)
     return res
 
-class GetStudyParameter:
+class GetServerParameter:
 
     def __init__(self):
         self.prev_prompt = ""
@@ -23,7 +23,7 @@ class GetStudyParameter:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "api": ("STRING", {"default": "https://w001-api.studiognu.org/api/prompt/mv"}),
+                "api": ("STRING", {"default": "https://w001-api.studiognu.org/api/prompt/mv/Music1"}),
                 "music1_title": ("STRING", {"default": "Music1"}),
                 "music1_output": ("STRING", {"default": folder_paths.get_output_directory()}),
                 "music1_batch_size": ("INT",{"default": 16, "min": 1, "step": 1},),
@@ -43,7 +43,7 @@ class GetStudyParameter:
     FUNCTION = "run"
     OUTPUT_NODE = True
 
-    CATEGORY = "StudyNodes"
+    CATEGORY = "OKIAF"
 
     def run(self,api, positive_prompt,negative_prompt,
             music1_title,music2_title,music3_title,
@@ -104,12 +104,9 @@ class GetStudyParameter:
         return (_positive_prompt, _negative_prompt,filename_prefix,video_frame)
 
 NODE_CLASS_MAPPINGS = {
-    "GetStudyParameter": GetStudyParameter,
+    "GetServerParameter": GetServerParameter,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "GetStudyParameter": "Get Study Parameter",
-    # "CaptureWebcam": "Capture Webcam",
-    # "LoadWebcamImage": "Load Webcam Image",
-    # "SaveImagetoPath": "Save Image to Path",
+    "GetServerParameter": "Get Server Parameter",
 }
