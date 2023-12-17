@@ -61,6 +61,7 @@ class GetServerParameter:
                 "music1_batch_size": ("INT",{"default": 16, "min": 1, "step": 1},),
                 "music2_batch_size": ("INT",{"default": 30, "min": 1, "step": 1},),
                 "music3_batch_size": ("INT",{"default": 15, "min": 1, "step": 1},),
+                "input_index": ("INT",{"default": 1, "min": 1, "step": 1},),
                 "positive_prompt": ("STRING", {"multiline": True}),
                 "negative_prompt": ("STRING", {"multiline": True}),
             }
