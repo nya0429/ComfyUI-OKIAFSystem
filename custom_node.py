@@ -23,16 +23,13 @@ class GetServerParameter:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "api": ("STRING", {"default": "https://w001-api.studiognu.org/api/prompt/mv/Music1"}),
+                "domain": ("STRING", {"default": "https://w001-api.studiognu.org/api/prompt/mv"}),
+                "output": ("STRING", {"default": folder_paths.get_output_directory()}),
                 "music1_title": ("STRING", {"default": "Music1"}),
-                "music1_output": ("STRING", {"default": folder_paths.get_output_directory()}),
                 "music1_batch_size": ("INT",{"default": 16, "min": 1, "step": 1},),
-                "music1_title": ("STRING", {"default": "Music1"}),
                 "music2_title": ("STRING", {"default": "Music2"}),
-                "music2_output": ("STRING", {"default": folder_paths.get_output_directory()}),
                 "music2_batch_size": ("INT",{"default": 30, "min": 1, "step": 1},),
                 "music3_title": ("STRING", {"default": "Music3"}),
-                "music3_output": ("STRING", {"default": folder_paths.get_output_directory()}),
                 "music3_batch_size": ("INT",{"default": 15, "min": 1, "step": 1},),
                 "positive_prompt": ("STRING", {"multiline": True}),
                 "negative_prompt": ("STRING", {"multiline": True}),
@@ -45,11 +42,13 @@ class GetServerParameter:
 
     CATEGORY = "OKIAF"
 
-    def run(self,api, positive_prompt,negative_prompt,
+    def run(self,domain,output,positive_prompt,negative_prompt,
             music1_title,music2_title,music3_title,
-            music1_output,music2_output,music3_output,
             music1_batch_size,music2_batch_size,music3_batch_size):
         
+        api = domain + '/Music1'
+        print(api)
+
         res = get(api)
         if res.status_code != 200:
             _positive_prompt = positive_prompt
@@ -58,10 +57,10 @@ class GetServerParameter:
         data = res.json()
 
         #データが前回と同じだったら1秒待機して再取得する
-        while self.prev_prompt == data["prompt"]:
-            time.sleep(1)
-            res = get(api)
-            data = res.json()
+        # while self.prev_prompt == data["prompt"]:
+        #     time.sleep(1)
+        #     res = get(api)
+        #     data = res.json()
 
         prompt = data["prompt"]
         _positive_prompt = prompt["positive"]
@@ -79,27 +78,28 @@ class GetServerParameter:
 
         if title == music1_title:
             filename_prefix = music1_title
-            outputdir = music1_output
+            outputdir = output + '\\' + title
             video_frame = music1_batch_size
         elif title == music2_title:
             filename_prefix = music2_title
-            outputdir = music2_output
+            outputdir = output + '\\' + title
             video_frame = music2_batch_size
         elif title == music3_title:
             filename_prefix = music3_title
-            outputdir = music3_output
+            outputdir = output + '\\' + title
             video_frame = music3_batch_size
         else:
             filename_prefix = music1_title
-            outputdir = music1_output
+            outputdir = output + '\\Music1'
             video_frame = music1_batch_size
 
         outputdir = outputdir + '\\' + formatted_date
+        absolute_path = os.path.abspath(outputdir)
         print(folder_paths.get_output_directory())
-        print(outputdir)
-        if not os.path.exists(outputdir):
-            os.makedirs(outputdir)
-        folder_paths.set_output_directory(outputdir)
+        print(absolute_path)
+        if not os.path.exists(absolute_path):
+            os.makedirs(absolute_path)
+        folder_paths.set_output_directory(absolute_path)
 
         return (_positive_prompt, _negative_prompt,filename_prefix,video_frame)
 
