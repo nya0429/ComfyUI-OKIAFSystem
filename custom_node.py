@@ -8,7 +8,7 @@ import time
 
 import folder_paths
 import datetime
-
+import pprint
 
 def get_request(api):
     res = get(api)
@@ -72,6 +72,7 @@ class GetServerParameter:
             _negative_prompt = negative_prompt
         
         data = res.json()
+        pprint.pprint(data)
         prompt = data["prompt"]
         _positive_prompt = prompt["positive"]
         _negative_prompt = prompt["negative"]

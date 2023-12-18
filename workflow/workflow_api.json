@@ -1,0 +1,218 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 1013995574300744,
+      "steps": 20,
+      "cfg": 2.5,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "14",
+        0
+      ],
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "12",
+        1
+      ],
+      "latent_image": [
+        "12",
+        2
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "12": {
+    "inputs": {
+      "width": 1920,
+      "height": 816,
+      "video_frames": [
+        "42",
+        3
+      ],
+      "motion_bucket_id": 127,
+      "fps": 12,
+      "augmentation_level": 0,
+      "clip_vision": [
+        "15",
+        1
+      ],
+      "init_image": [
+        "40",
+        0
+      ],
+      "vae": [
+        "15",
+        2
+      ]
+    },
+    "class_type": "SVD_img2vid_Conditioning"
+  },
+  "14": {
+    "inputs": {
+      "min_cfg": 1,
+      "model": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "VideoLinearCFGGuidance"
+  },
+  "15": {
+    "inputs": {
+      "ckpt_name": "svd_xt.safetensors"
+    },
+    "class_type": "ImageOnlyCheckpointLoader"
+  },
+  "23": {
+    "inputs": {
+      "width": 1920,
+      "height": 816,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "24": {
+    "inputs": {
+      "text": [
+        "42",
+        0
+      ],
+      "clip": [
+        "29",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "25": {
+    "inputs": {
+      "text": [
+        "42",
+        1
+      ],
+      "clip": [
+        "29",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "29": {
+    "inputs": {
+      "ckpt_name": "mitsua-diffusion-one.ckpt"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "33": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": [
+        "42",
+        2
+      ],
+      "format": "video/h264-mp4",
+      "pingpong": false,
+      "save_image": true,
+      "crf": 20,
+      "save_metadata": false,
+      "audio_file": "",
+      "videopreview": {
+        "hidden": true,
+        "paused": false,
+        "params": {
+          "filename": "Music2_00008.mp4",
+          "subfolder": "",
+          "type": "output",
+          "format": "video/h264-mp4"
+        }
+      },
+      "images": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine"
+  },
+  "34": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 962594204255978,
+      "steps": 8,
+      "cfg": 1.5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "29",
+        0
+      ],
+      "positive": [
+        "24",
+        0
+      ],
+      "negative": [
+        "25",
+        0
+      ],
+      "latent_image": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced"
+  },
+  "39": {
+    "inputs": {
+      "vae_name": "mitsua_vae.bin"
+    },
+    "class_type": "VAELoader"
+  },
+  "40": {
+    "inputs": {
+      "tile_size": 512,
+      "samples": [
+        "34",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled"
+  },
+  "41": {
+    "inputs": {
+      "tile_size": 512,
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "15",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeTiled"
+  },
+  "42": {
+    "inputs": {
+      "domain": "https://w001-api.studiognu.org/api/prompt/mv",
+      "output": "//SHIKI-17GRAM/Users/user01/Desktop/OKIAF/OKIAFSystem/Video",
+      "music1_batch_size": 16,
+      "music2_batch_size": 30,
+      "music3_batch_size": 15,
+      "positive_prompt": "",
+      "negative_prompt": ""
+    },
+    "class_type": "GetServerParameter"
+  }
+}
