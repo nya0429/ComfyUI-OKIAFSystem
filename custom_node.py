@@ -88,13 +88,14 @@ class GetServerParameter:
 
         filename_prefix = title
 
-        formatted_date = get_date_strings()
-        outputdir = output + '\\' + title + '\\' + formatted_date
-        absolute_path = os.path.abspath(outputdir)
-        print('output path : ',absolute_path)
-        if not os.path.exists(absolute_path):
-            os.makedirs(absolute_path)
-        folder_paths.set_output_directory(absolute_path)
+        if os.path.exists(output):
+            formatted_date = get_date_strings()
+            outputdir = output + '\\' + title + '\\' + formatted_date
+            absolute_path = os.path.abspath(outputdir)
+            print('output path : ',absolute_path)
+            if not os.path.exists(absolute_path):
+                os.makedirs(absolute_path)
+            folder_paths.set_output_directory(absolute_path)
 
         self.index += 1
         if self.index == 4:

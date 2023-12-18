@@ -1,6 +1,6 @@
 {
-  "last_node_id": 41,
-  "last_link_id": 87,
+  "last_node_id": 42,
+  "last_link_id": 91,
   "nodes": [
     {
       "id": 14,
@@ -147,7 +147,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 75,
+          "link": 88,
           "widget": {
             "name": "text"
           }
@@ -193,7 +193,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 76,
+          "link": 89,
           "widget": {
             "name": "text"
           }
@@ -214,170 +214,6 @@
       },
       "widgets_values": [
         "humans, animals, human shapes, animal shapes"
-      ]
-    },
-    {
-      "id": 39,
-      "type": "VAELoader",
-      "pos": [
-        1094,
-        -38
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            81
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "mitsua_vae.bin"
-      ]
-    },
-    {
-      "id": 15,
-      "type": "ImageOnlyCheckpointLoader",
-      "pos": [
-        960,
-        620
-      ],
-      "size": {
-        "0": 369.6000061035156,
-        "1": 98
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            23
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP_VISION",
-          "type": "CLIP_VISION",
-          "links": [
-            24
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            25,
-            84
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageOnlyCheckpointLoader"
-      },
-      "widgets_values": [
-        "svd_xt.safetensors"
-      ]
-    },
-    {
-      "id": 12,
-      "type": "SVD_img2vid_Conditioning",
-      "pos": [
-        1833,
-        482
-      ],
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_vision",
-          "type": "CLIP_VISION",
-          "link": 24
-        },
-        {
-          "name": "init_image",
-          "type": "IMAGE",
-          "link": 86,
-          "slot_index": 1
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 25
-        },
-        {
-          "name": "video_frames",
-          "type": "INT",
-          "link": 78,
-          "widget": {
-            "name": "video_frames"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            40
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            17
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            18
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SVD_img2vid_Conditioning"
-      },
-      "widgets_values": [
-        1920,
-        816,
-        24,
-        127,
-        12,
-        0
       ]
     },
     {
@@ -491,7 +327,7 @@
         {
           "name": "filename_prefix",
           "type": "STRING",
-          "link": 77,
+          "link": 90,
           "widget": {
             "name": "filename_prefix"
           }
@@ -515,84 +351,13 @@
           "hidden": true,
           "paused": false,
           "params": {
-            "filename": "Music1_00007.mp4",
+            "filename": "Music2_00008.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4"
           }
         }
       }
-    },
-    {
-      "id": 38,
-      "type": "GetServerParameter",
-      "pos": [
-        -497,
-        613
-      ],
-      "size": {
-        "0": 400,
-        "1": 378
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "positive_prompt",
-          "type": "STRING",
-          "links": [
-            75
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative_prompt",
-          "type": "STRING",
-          "links": [
-            76
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "filename_prefix",
-          "type": "STRING",
-          "links": [
-            77
-          ],
-          "shape": 3,
-          "slot_index": 2
-        },
-        {
-          "name": "video_frame",
-          "type": "INT",
-          "links": [
-            78
-          ],
-          "shape": 3,
-          "slot_index": 3
-        },
-        {
-          "name": "output_index",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "GetServerParameter"
-      },
-      "widgets_values": [
-        "https://w001-api.studiognu.org/api/prompt/mv",
-        "../OKIAFSystem/Video",
-        16,
-        30,
-        15,
-        "",
-        ""
-      ]
     },
     {
       "id": 3,
@@ -644,13 +409,177 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        810673472930335,
+        1013995574300744,
         "randomize",
         20,
         2.5,
         "euler",
         "simple",
         1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "SVD_img2vid_Conditioning",
+      "pos": [
+        1933,
+        467
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 24
+        },
+        {
+          "name": "init_image",
+          "type": "IMAGE",
+          "link": 86,
+          "slot_index": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        },
+        {
+          "name": "video_frames",
+          "type": "INT",
+          "link": 91,
+          "widget": {
+            "name": "video_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SVD_img2vid_Conditioning"
+      },
+      "widgets_values": [
+        1920,
+        816,
+        24,
+        127,
+        12,
+        0
+      ]
+    },
+    {
+      "id": 15,
+      "type": "ImageOnlyCheckpointLoader",
+      "pos": [
+        1006,
+        632
+      ],
+      "size": {
+        "0": 369.6000061035156,
+        "1": 98
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            25,
+            84
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageOnlyCheckpointLoader"
+      },
+      "widgets_values": [
+        "svd_xt.safetensors"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        1025,
+        261
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            81
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "mitsua_vae.bin"
       ]
     },
     {
@@ -705,7 +634,7 @@
       },
       "widgets_values": [
         "enable",
-        236789378943685,
+        962594204255978,
         "randomize",
         8,
         1.5,
@@ -714,6 +643,71 @@
         0,
         10000,
         "disable"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "GetServerParameter",
+      "pos": [
+        -483,
+        542
+      ],
+      "size": {
+        "0": 400,
+        "1": 306.0000305175781
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "links": [
+            88
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "links": [
+            89
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "links": [
+            90
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "video_frame",
+          "type": "INT",
+          "links": [
+            91
+          ],
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetServerParameter"
+      },
+      "widgets_values": [
+        "https://w001-api.studiognu.org/api/prompt/mv",
+        "//SHIKI-17GRAM/Users/user01/Desktop/OKIAF/OKIAFSystem/Video",
+        16,
+        30,
+        15,
+        "",
+        ""
       ]
     }
   ],
@@ -823,38 +817,6 @@
       "LATENT"
     ],
     [
-      75,
-      38,
-      0,
-      24,
-      1,
-      "STRING"
-    ],
-    [
-      76,
-      38,
-      1,
-      25,
-      1,
-      "STRING"
-    ],
-    [
-      77,
-      38,
-      2,
-      33,
-      1,
-      "STRING"
-    ],
-    [
-      78,
-      38,
-      3,
-      12,
-      3,
-      "INT"
-    ],
-    [
       80,
       34,
       0,
@@ -901,6 +863,38 @@
       33,
       0,
       "IMAGE"
+    ],
+    [
+      88,
+      42,
+      0,
+      24,
+      1,
+      "STRING"
+    ],
+    [
+      89,
+      42,
+      1,
+      25,
+      1,
+      "STRING"
+    ],
+    [
+      90,
+      42,
+      2,
+      33,
+      1,
+      "STRING"
+    ],
+    [
+      91,
+      42,
+      3,
+      12,
+      3,
+      "INT"
     ]
   ],
   "groups": [
